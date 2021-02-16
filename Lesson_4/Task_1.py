@@ -3,19 +3,11 @@
 # (выработка в часах*ставка в час) + премия. Во время выполнения расчёта
 # для конкретных значений необходимо запускать скрипт с параметрами.
 
-# файл называем calc.py 
-def calc():
-    try:
-        time = float(input('Выработка в часах - '))
-        salary = int(input('Ставка в час ($) - '))
-        bonus = int(input('Премия ($) - '))
-        res = time * salary + bonus
-        print(f'заработная плата сотрудника  {res}')
-    except ValueError:
-        return print('Not a number')
+from sys import argv
 
-
-calc()
-
-# import calc
-# для импорта в другом проекте
+script, first_param, second_param, third_param = argv
+print(f'Выработка в часах - {first_param}\n'
+      f'Ставка в час ($) - {second_param}\n'
+      f'Премия ($) - {third_param}')
+print(f'Заработная плата сотрудника - '
+      f'{int(first_param) * int(second_param) + int(third_param)}')
